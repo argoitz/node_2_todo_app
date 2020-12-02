@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
+import Form from "./components/Form";
+import TasksBox from "./components/TasksBox";
+import todoRepository from "./infrastructure/todoRepository";
 
 function App() {
+  const status = ["to do", "doing", "finished"];
+  const [todos, setTodos] = useState([]);
+  const [newTodo, setNewTodo] = useState([]);
+  const [inputValues, setInputValues] = useState({
+    name: "",
+    description: "",
+    completed: false,
+    completion_date: Date.now,
+    status: "to do",
+    owner: "",
+  });
+
+  useEffect(() => {
+    todoRepository.getTodos().then((res) => {
+      setTodos(res);
+    });
+  }, [newTodo]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Form
+        todos={todos}
+        inputValues={inputValues}
+        setInputValues={setInputValues}
+        setNewTodo={setNewTodo}
+      />
+      {status.map((e) => {
+        return <TasksBox status={e} todos={todos} setNewTodo={setNewTodo} />;
+      })}
     </div>
   );
 }

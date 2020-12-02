@@ -1,0 +1,33 @@
+ul {
+  border: 2px solid #333;
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: start;
+  li {
+    display: block;
+  }
+
+  .name {
+    font-weight: bold;
+    width: 100%;
+    border-bottom: 1px solid #aaa;
+  }
+  .owner {
+    font-style: italic;
+  }
+
+  .description {
+    background: #add8e647;
+    width: 100%;
+    padding: 2%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .completed {
+    width: 100%;
+    text-align: right;
+  }
+}
