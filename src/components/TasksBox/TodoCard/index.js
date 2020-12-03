@@ -25,32 +25,38 @@ const TodoCard = ({ todos, setNewTodo }) => {
 
   let renderTodos = todos.map((todo) => {
     return (
-      <ul>
-        <li className="name">{todo.name}</li>
-        <li className="owner">{todo.owner}</li>
-        <li className="description">{todo.description}</li>
-        <li className="completed">
-          <input
-            type="checkbox"
-            checked={todo.completed ? "checked" : ""}
-            onChange={() => clickHandle(todo.id)}
-          />
-          Completado
-        </li>
-        <li>
-          <select
-            value={todo.status}
-            onChange={(e) => changeStatus(e.target.value, todo.id)}
-          >
-            <option value="to do">to do</option>
-            <option value="doing">doing</option>
-            <option value="finished">finished</option>
-          </select>
-        </li>
-      </ul>
+      <div className="todoCard">
+        <ul>
+          <li className="name">{todo.name}</li>
+          <li className="owner">{todo.owner}</li>
+          <li className="description">{todo.description}</li>
+
+          <li className="card-footer">
+            <div className="select">
+              <select
+                value={todo.status}
+                onChange={(e) => changeStatus(e.target.value, todo.id)}
+              >
+                <option value="to do">to do</option>
+                <option value="doing">doing</option>
+                <option value="finished">finished</option>
+              </select>
+            </div>
+
+            <div className="completed">
+              <input
+                type="checkbox"
+                checked={todo.completed ? "checked" : ""}
+                onChange={() => clickHandle(todo.id)}
+              />
+              Done
+            </div>
+          </li>
+        </ul>
+      </div>
     );
   });
-  return <div className="todoCard">{renderTodos}</div>;
+  return <>{renderTodos}</>;
 };
 
 export default TodoCard;

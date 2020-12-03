@@ -1,22 +1,58 @@
 .form {
-  border: 2px solid #333;
-  padding: 1%;
+  // border: 2px solid #333;
+  padding: 0rem 1rem 1rem 1rem;
   display: flex;
   flex-direction: column;
   align-content: center;
   align-items: start;
-  min-height: 100vh;
+  width: 20vw;
+  border-radius: 5px;
+  background: #eee;
+  -webkit-box-shadow: 5px 5px 15px 5px #666;
+  box-shadow: 5px 5px 15px 5px #666;
+  margin-top: 20px;
+  h2 {
+    width: 100%;
+    text-transform: capitalize;
+    border-bottom: 2px solid #333;
+    text-align: center;
+  }
+  div {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    label {
+      font-weight: bold;
+    }
+    input {
+      float: right;
+      margin-left: auto;
+      border: 2px solid #333;
+      border-radius: 5px;
+      width: 60%;
+    }
+  }
+  .textareaBox {
+    flex-direction: column;
+    textarea {
+      width: 100%;
+      border: 2px solid #333;
+      border-radius: 5px;
+    }
+  }
+
   .button {
     font-size: 20px;
     background: #090;
     padding: 0.3rem 1rem;
     color: #fff;
     border-radius: 5px;
+    margin-left: auto;
+    -webkit-box-shadow: 3px 3px 3px 1px #757575;
+    box-shadow: 3px 3px 3px 1px #757575;
   }
-  h2 {
-    width: 100%;
-    text-transform: capitalize;
-    border-bottom: 2px solid #333;
-    text-align: center;
+  .button:hover {
+    cursor: pointer;
   }
 }

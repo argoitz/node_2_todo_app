@@ -42,9 +42,10 @@ const Form = ({ todos, inputValues, setInputValues, setNewTodo }) => {
         />
       </div>
 
-      <div>
+      <div className="textareaBox">
         <label>Description:</label>
         <textarea
+          rows="5"
           placeholder="Description"
           value={inputValues.description}
           onChange={(e) =>
